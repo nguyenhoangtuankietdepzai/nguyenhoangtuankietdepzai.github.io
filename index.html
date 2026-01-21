@@ -1,191 +1,337 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <title>Thế Giới Xe Đua & Xe Sang</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-        }
+<meta charset="UTF-8">
+<title>Nguyễn Hoàng Tuấn Kiệt 12A4 | Giới thiệu xe sang</title>
 
-        header {
-            background: linear-gradient(to right, #020617, #1e293b);
-            padding: 40px;
-            text-align: center;
-        }
+<style>
+*{
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif
+}
+body{
+    margin:0;
+    background:#020617;
+    color:#f8fafc
+}
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+/* HEADER */
+header{
+    background:linear-gradient(to right,#000,#0f172a);
+    padding:30px 8%
+}
+header h1{
+    margin:0;
+    font-size:36px
+}
+header p{
+    margin-top:8px;
+    color:#cbd5f5
+}
+nav{
+    margin-top:15px
+}
+nav a{
+    color:#e5e7eb;
+    margin-right:25px;
+    text-decoration:none;
+    font-weight:500
+}
+nav a:hover{
+    color:#38bdf8
+}
 
-        header p {
-            font-size: 18px;
-            color: #cbd5f5;
-        }
+/* HERO */
+.hero{
+    padding:90px 8%;
+    background:url('https://images.unsplash.com/photo-1549924231-f129b911e442') center/cover
+}
+.hero h2{
+    font-size:46px;
+    max-width:650px
+}
+.hero p{
+    font-size:18px;
+    max-width:550px
+}
 
-        section {
-            padding: 50px 8%;
-        }
+/* SECTION */
+section{
+    padding:60px 8%
+}
+section h2{
+    border-left:6px solid #38bdf8;
+    padding-left:15px;
+    margin-bottom:25px
+}
 
-        section h2 {
-            font-size: 32px;
-            border-left: 6px solid #38bdf8;
-            padding-left: 15px;
-            margin-bottom: 30px;
-        }
+/* FILTER */
+.filter{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px
+}
+select{
+    padding:10px;
+    border-radius:8px;
+    border:none
+}
 
-        .car-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
+/* CARS */
+.cars{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px
+}
+.car{
+    background:#020617;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.7);
+    transition:.4s
+}
+.car:hover{
+    transform:translateY(-10px)
+}
+.car img{
+    width:100%;
+    height:200px;
+    object-fit:cover
+}
+.info{
+    padding:20px
+}
+.badge{
+    background:#38bdf8;
+    color:#020617;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:13px
+}
+.price{
+    color:#facc15;
+    font-weight:bold;
+    margin:10px 0
+}
+button{
+    width:100%;
+    padding:12px;
+    background:#38bdf8;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer
+}
+button:hover{
+    background:#0ea5e9
+}
 
-        .car-card {
-            background-color: #020617;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-            transition: transform 0.3s;
-        }
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    justify-content:center;
+    align-items:center
+}
+.modal-content{
+    background:#020617;
+    padding:30px;
+    border-radius:20px;
+    width:500px
+}
+.close{
+    float:right;
+    color:#f87171;
+    cursor:pointer
+}
 
-        .car-card:hover {
-            transform: translateY(-10px);
-        }
+/* CONTACT */
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    border:none
+}
 
-        .car-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .car-info {
-            padding: 20px;
-        }
-
-        .car-info h3 {
-            margin: 0 0 10px;
-            font-size: 22px;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #38bdf8;
-            color: #020617;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: #facc15;
-            font-weight: bold;
-            margin: 10px 0;
-        }
-
-        footer {
-            background-color: #020617;
-            text-align: center;
-            padding: 25px;
-            color: #94a3b8;
-        }
-    </style>
+/* FOOTER */
+footer{
+    background:#000;
+    padding:30px;
+    text-align:center;
+    color:#94a3b8
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>Thế Giới Xe Đua & Xe Sang</h1>
-    <p>Khám phá những tuyệt tác công nghệ và tốc độ hàng đầu thế giới</p>
+<h1>Nguyễn Hoàng Tuấn Kiệt 12A4</h1>
+<p>Website giới thiệu xe sang & siêu xe hàng đầu thế giới</p>
+<nav>
+<a href="#home">Trang chủ</a>
+<a href="#cars">Danh sách xe</a>
+<a href="#compare">So sánh</a>
+<a href="#contact">Liên hệ</a>
+</nav>
 </header>
 
-<!-- BMW -->
+<div class="hero" id="home">
+<h2>Đỉnh cao công nghệ, tốc độ và sự sang trọng</h2>
+<p>Khám phá các dòng xe cao cấp đến từ BMW, Mercedes, Porsche, Ferrari và Bugatti</p>
+</div>
+
 <section>
-    <h2>BMW</h2>
-    <div class="car-list">
-        <div class="car-card">
-            <img src="https://cdn.motor1.com/images/mgl/2Nz8y/s1/bmw-m5-competition.jpg">
-            <div class="car-info">
-                <h3>BMW M5 Competition</h3>
-                <span class="tag">Xe thể thao hạng sang</span>
-                <p class="price">Giá: ~5,5 tỷ VNĐ</p>
-                <p>Động cơ V8 twin-turbo, 625 mã lực, khả năng tăng tốc 0–100km/h chỉ 3,3 giây.</p>
-            </div>
-        </div>
-    </div>
+<h2>Về chúng tôi</h2>
+<p>
+<strong>Nguyễn Hoàng Tuấn Kiệt 12A4</strong> là website
+<strong>giới thiệu xe sang, siêu xe và hypercar</strong>
+đến từ những thương hiệu hàng đầu thế giới.
+<br><br>
+Website được xây dựng nhằm mục đích <strong>học tập, nghiên cứu và thuyết trình</strong>,
+giúp người xem hiểu rõ hơn về thiết kế, công nghệ,
+hiệu suất và đẳng cấp của các dòng xe cao cấp.
+</p>
 </section>
 
-<!-- MERCEDES -->
-<section>
-    <h2>Mercedes-Benz</h2>
-    <div class="car-list">
-        <div class="car-card">
-            <img src="https://cdn.motor1.com/images/mgl/QM0kA/s1/mercedes-amg-gt-63-s.jpg">
-            <div class="car-info">
-                <h3>Mercedes-AMG GT 63 S</h3>
-                <span class="tag">Sedan hiệu suất cao</span>
-                <p class="price">Giá: ~6 tỷ VNĐ</p>
-                <p>Thiết kế thể thao, động cơ V8 mạnh mẽ, nội thất sang trọng chuẩn AMG.</p>
-            </div>
-        </div>
-    </div>
+<section id="cars">
+<h2>Danh sách xe nổi bật</h2>
+
+<div class="filter">
+<select>
+<option>Hãng xe</option>
+<option>BMW</option>
+<option>Mercedes</option>
+<option>Porsche</option>
+<option>Ferrari</option>
+<option>Bugatti</option>
+</select>
+
+<select>
+<option>Phân loại</option>
+<option>Xe sang</option>
+<option>Siêu xe</option>
+<option>Hypercar</option>
+</select>
+
+<select>
+<option>Mức giá tham khảo</option>
+<option>Dưới 10 tỷ</option>
+<option>10 – 30 tỷ</option>
+<option>Trên 30 tỷ</option>
+</select>
+</div>
+
+<div class="cars">
+
+<div class="car">
+<img src="https://cdn.motor1.com/images/mgl/2Nz8y/s1/bmw-m5-competition.jpg">
+<div class="info">
+<h3>BMW M5 Competition</h3>
+<span class="badge">Xe sang thể thao</span>
+<div class="price">~ 5,5 tỷ VNĐ</div>
+<button onclick="openModal('BMW M5 Competition','Động cơ V8 Twin Turbo – 625 mã lực – 0–100 km/h trong 3,3 giây.')">
+Xem chi tiết
+</button>
+</div>
+</div>
+
+<div class="car">
+<img src="https://cdn.motor1.com/images/mgl/QM0kA/s1/mercedes-amg-gt-63-s.jpg">
+<div class="info">
+<h3>Mercedes-AMG GT 63 S</h3>
+<span class="badge">Sedan hiệu suất cao</span>
+<div class="price">~ 6 tỷ VNĐ</div>
+<button onclick="openModal('Mercedes-AMG GT 63 S','Thiết kế thể thao, nội thất AMG cao cấp, khả năng vận hành mạnh mẽ.')">
+Xem chi tiết
+</button>
+</div>
+</div>
+
+<div class="car">
+<img src="https://cdn.motor1.com/images/mgl/9mN8B/s1/porsche-911-turbo-s.jpg">
+<div class="info">
+<h3>Porsche 911 Turbo S</h3>
+<span class="badge">Siêu xe</span>
+<div class="price">~ 13 tỷ VNĐ</div>
+<button onclick="openModal('Porsche 911 Turbo S','Biểu tượng xe thể thao với khả năng tăng tốc và độ ổn định vượt trội.')">
+Xem chi tiết
+</button>
+</div>
+</div>
+
+<div class="car">
+<img src="https://cdn.motor1.com/images/mgl/0xK0r/s1/ferrari-sf90-stradale.jpg">
+<div class="info">
+<h3>Ferrari SF90 Stradale</h3>
+<span class="badge">Siêu xe Hybrid</span>
+<div class="price">~ 35 tỷ VNĐ</div>
+<button onclick="openModal('Ferrari SF90 Stradale','Công suất 1000 mã lực – Công nghệ hybrid lấy cảm hứng từ F1.')">
+Xem chi tiết
+</button>
+</div>
+</div>
+
+<div class="car">
+<img src="https://cdn.motor1.com/images/mgl/4Jq1P/s1/bugatti-chiron-super-sport.jpg">
+<div class="info">
+<h3>Bugatti Chiron</h3>
+<span class="badge">Hypercar</span>
+<div class="price">~ 80 tỷ VNĐ</div>
+<button onclick="openModal('Bugatti Chiron','Động cơ W16 – 1500 mã lực – Đỉnh cao của ngành công nghiệp xe hơi.')">
+Xem chi tiết
+</button>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- PORSCHE -->
-<section>
-    <h2>Porsche</h2>
-    <div class="car-list">
-        <div class="car-card">
-            <img src="https://cdn.motor1.com/images/mgl/9mN8B/s1/porsche-911-turbo-s.jpg">
-            <div class="car-info">
-                <h3>Porsche 911 Turbo S</h3>
-                <span class="tag">Xe thể thao</span>
-                <p class="price">Giá: ~13 tỷ VNĐ</p>
-                <p>Biểu tượng xe thể thao với khả năng vận hành linh hoạt và độ bền vượt trội.</p>
-            </div>
-        </div>
-    </div>
+<section id="compare">
+<h2>So sánh tổng quan</h2>
+<p>
+• BMW M5: Thực dụng – mạnh mẽ – phù hợp di chuyển hằng ngày<br>
+• Porsche 911: Linh hoạt – cân bằng – chuẩn xe thể thao<br>
+• Ferrari SF90: Hiệu suất cực cao – công nghệ tương lai<br>
+• Bugatti Chiron: Đỉnh cao tốc độ và sự xa xỉ
+</p>
 </section>
 
-<!-- FERRARI -->
-<section>
-    <h2>Ferrari</h2>
-    <div class="car-list">
-        <div class="car-card">
-            <img src="https://cdn.motor1.com/images/mgl/0xK0r/s1/ferrari-sf90-stradale.jpg">
-            <div class="car-info">
-                <h3>Ferrari SF90 Stradale</h3>
-                <span class="tag">Siêu xe hybrid</span>
-                <p class="price">Giá: ~35 tỷ VNĐ</p>
-                <p>Tổng công suất 1000 mã lực, kết hợp động cơ xăng và điện, tốc độ cực hạn.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- BUGATTI -->
-<section>
-    <h2>Bugatti</h2>
-    <div class="car-list">
-        <div class="car-card">
-            <img src="https://cdn.motor1.com/images/mgl/4Jq1P/s1/bugatti-chiron-super-sport.jpg">
-            <div class="car-info">
-                <h3>Bugatti Chiron Super Sport</h3>
-                <span class="tag">Hypercar</span>
-                <p class="price">Giá: ~80 tỷ VNĐ</p>
-                <p>Đỉnh cao công nghệ với động cơ W16, tốc độ trên 490km/h.</p>
-            </div>
-        </div>
-    </div>
+<section id="contact">
+<h2>Liên hệ & góp ý</h2>
+<input placeholder="Họ và tên">
+<input placeholder="Email">
+<textarea placeholder="Nội dung góp ý / nhận xét"></textarea>
+<button>Gửi</button>
 </section>
 
 <footer>
-    © 2026 | Website giới thiệu xe đua & xe sang | Thiết kế chuyên nghiệp
+© 2026 Nguyễn Hoàng Tuấn Kiệt 12A4  
+Dự án website giới thiệu xe sang – Lớp 12A4
 </footer>
+
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">✖</span>
+<h2 id="mTitle"></h2>
+<p id="mDesc"></p>
+<button>Tìm hiểu thêm</button>
+</div>
+</div>
+
+<script>
+function openModal(title,desc){
+    modal.style.display='flex';
+    mTitle.innerText=title;
+    mDesc.innerText=desc;
+}
+function closeModal(){
+    modal.style.display='none';
+}
+</script>
 
 </body>
 </html>
